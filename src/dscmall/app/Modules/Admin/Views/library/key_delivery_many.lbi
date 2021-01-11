@@ -1,0 +1,77 @@
+
+<style>
+    .order_box {
+        display: flex;
+        border-bottom: 1px dashed #ccc;
+    }
+    .order_title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 50px;
+        border-right: 1px solid #f6f6f6;
+        padding-right: 10px;
+    }
+    .order_content {
+        flex: auto;
+        display: flex;
+        flex-direction: column;
+    }
+    .order_item {
+        display: flex;
+        align-items: center;
+        height: 30px;
+        padding: 8px 0 8px 16px;
+        border-bottom: 1px dashed #dcdcdc;
+    }
+    .order_item:last-child {
+        border: none;
+    }
+    .order_item:hover {
+        background-color: #f6f6f6;
+    }
+    .order_item span:nth-child(1) {
+        min-width: 200px;
+    }
+    .invoice_no_text{
+        border: 1px solid #dbdbdb;
+        border-radius: 2px;
+        height: 28px;
+        line-height: 28px;
+        padding: 0 10px;
+        margin-right: 10px;
+    }
+    .span-two{
+        min-width: 150px;
+        padding: 0 10px
+    }
+    .text-invo{
+        float: right;
+        flex: 1;
+        text-align: right;
+    }
+</style>
+<!--{if $res}-->
+{foreach from=$res key=key item=info}
+    <div class="order_box">
+        <div class="order_title">{$key}</div>
+        <div class="order_content">
+            {foreach from=$info key=key item=val}
+                <div class="order_item">
+                    <span>{$lang.label_order_sn}{$val.order_sn}</span>
+                    <div class="span-two">
+                    <p>{$lang.label_consignee}{$val.consignee}</p>
+                    <p>{$lang.label_mobile}{$val.mobile}</p>
+                    </div>
+                    <span>{$lang.label_address}{$val.address}</span>
+                    <div class="text-invo">
+                        <label><em class="require-field">*</em>{$lang.label_post_form_id}</label>
+                        <input type="text" name="invoice_no[]" class="invoice_no_text" autocomplete="off"/>
+                        <input type="hidden" name="order_id[]" value="{$val.order_id}"/>
+                    </div>
+                </div>
+            {/foreach}
+        </div>
+    </div>
+{/foreach}
+<!--{/if}-->

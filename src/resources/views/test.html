@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" content="{$description}"/>
+    <meta name="keywords" content="{$keywords}"/>
+    <title>test</title>
+    <script type="text/javascript" src="__ROOT__js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="http://res2.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+</head>
+<body>
+<div id="app">test</div>
+<script>
+   $.ajax({
+        type: "post",
+        url: "https://v3.dev.dscmall.cn/api/v4/wechat/jssdk",
+        data: {
+           url:'https://v3.dev.dscmall.cn/mobile'
+        },
+        dataType: "json",
+        success: function (data) {
+            console.log(data)
+            if(data.status == 'success'){
+                wx.config(data.data)
+                wx.ready(function () {
+                    wx.updateAppMessageShareData({
+                        title: '静态页面测试',
+                        desc: '描述描述描述描述描述',
+                        link: 'https://v3.dev.dscmall.cn/mobile',
+                        imgUrl: 'https://v3.dev.dscmall.cn/storage/images/wap_logo.png',
+                        success: function (res) {
+                            console.log(res)
+                        }
+                    });
+                    wx.updateTimelineShareData({
+                        title: '静态页面测试',
+                        desc: '描述描述描述描述描述',
+                        link: 'https://v3.dev.dscmall.cn/mobile',
+                        imgUrl: 'https://v3.dev.dscmall.cn/storage/images/wap_logo.png',
+                        success: function (res) {
+                            console.log(res)
+                        }
+                    });
+                });
+            }
+        }
+    });
+</script>
+</body>
+</html>

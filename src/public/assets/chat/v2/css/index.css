@@ -1,0 +1,85 @@
+body {
+    background: #d8d8d8;
+    color: #333;
+    min-height: 500px;
+}
+
+.wrap {
+    width: 1200px;
+    height: 660px;
+    margin: 160px auto 0;
+    background: white;
+}
+
+.wrap .shop-pool {
+    width: 260px;
+    background: #eee;
+    height: 100%;
+    float: left;
+}
+
+.wrap .shop-pool .person {
+    height: 80px;
+    background: #e95858;
+}
+
+.wrap .shop-pool .search {
+    height: 36px;
+    background: #e95858;
+}
+
+.wrap .shop-pool .list {
+    height: 544px;
+    overflow-y: auto;
+}
+
+.wrap .shop-pool .list ul li {
+    height: 68px;
+}
+
+.main {
+    width: 940px;
+    float: left;
+}
+
+.main .header {
+    height: 49px;
+    border-bottom: 1px #e2e2e2 solid;
+}
+
+.main .body .dialog {
+    width: 600px;
+    height: 610px;
+    float: left;
+}
+
+.main .body .dialog .stage {
+    height: 420px;
+    overflow-y: auto;
+}
+
+
+.layui-layedit {
+    border-width: 0
+}
+
+.main .body .info {
+    width: 339px;
+    height: 610px;
+    float: left;
+    border-left: 1px #e2e2e2 solid;
+}
+
+.layui-tab {
+    margin: 0;
+}
+
+.layui-tab-brief > .layui-tab-title .layui-this {
+    color: #e95858;
+}
+
+.layui-tab-brief > .layui-tab-more li.layui-this:after, .layui-tab-brief > .layui-tab-title .layui-this:after {
+    border-bottom: 2px solid #e95858;
+}
+
+
